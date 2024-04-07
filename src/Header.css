@@ -1,0 +1,14 @@
+header {
+    background: #36C9A9;
+    display: flex;
+}
+
+.logo {
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: white;
+}
