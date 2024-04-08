@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { auth } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 import './App.css';
 import Header from './components/Header';
@@ -9,20 +12,16 @@ import Main from './components/Main';
 
 const App = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogIn = () => {
-    setIsLoggedIn(true)
-};
+  const [user, loading, ] = useAuthState(auth);
 
   return (
       <div className="App">
         <Header />
         <Router>
           <Routes>
-            <Route path="/" element={isLoggedIn ? <Main /> : <LogIn loginHandler={handleLogIn}/>} />
-            <Route path="/login" element={isLoggedIn ? <Main /> : <LogIn loginHandler={handleLogIn}/>} />
-            <Route path="/signup" element={isLoggedIn ? <Main /> : <SignUp />} />
+            <Route path="/" element={(loading || user) ? <Main /> : <LogIn />} />
+            <Route path="/login" element={(loading || user) ? <Main /> : <LogIn />} />
+            <Route path="/signup" element={(loading || user) ? <Main /> : <SignUp />} />
             {/* <Route path="*" element={<NoPage />} /> */}
           </Routes>
       </Router>  

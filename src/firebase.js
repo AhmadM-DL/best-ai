@@ -23,7 +23,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-​​const db = getFirestore(app);
+const db = getFirestore(app); 
 
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
@@ -42,23 +42,26 @@ const signInWithGoogle = async () => {
     }
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    //alert(err.message);
   }
 };
 
 const logInWithEmailAndPassword = async (email, password) => {
+    console.debug(`logInWithEmailAndPassword(${email}, ${password})`)
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      ////alert(err.message);
     }
   };
 
   const registerWithEmailAndPassword = async (name, email, password) => {
     try {
+      console.debug("registerWithEmailAndPassword")
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
+      console.debug(user)
       await addDoc(collection(db, "users"), {
         uid: user.uid,
         name,
@@ -67,7 +70,7 @@ const logInWithEmailAndPassword = async (email, password) => {
       });
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      //alert(err.message);
     }
   };
 
@@ -77,11 +80,21 @@ const logInWithEmailAndPassword = async (email, password) => {
       alert("Password reset link sent!");
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      //alert(err.message);
     }
   };
 
   const logout = () => {
     signOut(auth);
+  };
+
+  export {
+    auth,
+    db,
+    signInWithGoogle,
+    logInWithEmailAndPassword,
+    registerWithEmailAndPassword,
+    sendPasswordReset,
+    logout,
   };
   
