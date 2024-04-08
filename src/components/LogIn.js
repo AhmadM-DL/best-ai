@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+
 import "./LogIn.css"
 
-const LogIn= ({onRegisterClick}) => {
+const LogIn= ({loginHandler}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,14 +16,8 @@ const LogIn= ({onRegisterClick}) => {
     };
 
     const handleLogin = () => {
-        // Implement login functionality
         console.log('Logging in with:', { username, password });
-    };
-
-    const handleRegister = () => {
-        if (onRegisterClick) {
-            onRegisterClick();
-        }
+        loginHandler();
     };
 
     return (
@@ -32,7 +28,8 @@ const LogIn= ({onRegisterClick}) => {
                     <input type="password" placeholder="password" value={password} onChange={handlePasswordChange}/>
                     <button onClick={handleLogin}>login</button>
                     <p class="message">
-                        Not registered? <span onClick={handleRegister}>Create an account</span>
+                        Not registered?
+                        <Link to="/signup">Create an account</Link>
                     </p>
                 </form>
             </div>

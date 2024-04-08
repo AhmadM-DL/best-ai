@@ -24,12 +24,6 @@ const SignUp = ({onBackToLogIn}) => {
         console.log('Signup form submitted:', formData);
     };
 
-    const handleBackToLogIn = () => {
-        if(onBackToLogIn){
-            onBackToLogIn()
-        }
-    }
-
     return (
         <div class="container">
             <div class="form">
@@ -38,9 +32,6 @@ const SignUp = ({onBackToLogIn}) => {
                 <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="password" required/>
                 <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required placeholder="confirm password"/>
                 <button type="submit">Sign Up</button>
-                <p class="message">
-                    <span onClick={handleBackToLogIn}>Back to login</span>
-                </p>
             </form>
             </div>
         </div>
