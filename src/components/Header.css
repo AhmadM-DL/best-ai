@@ -12,3 +12,12 @@ header {
     margin-bottom: 15px;
     color: white;
 }
+
+.menubtn {
+    margin-left: auto;
+    font-size: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    color: white;
+    cursor: pointer;
+}

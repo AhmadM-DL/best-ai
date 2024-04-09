@@ -8,20 +8,20 @@ import './App.css';
 import Header from './components/Header';
 import LogIn from './components/LogIn';
 import SignUp from "./components/SignUp";
-import Main from './components/Main';
+import Home from './components/Home';
 
 const App = () => {
 
-  const [user, loading, ] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   return (
       <div className="App">
-        <Header />
+        <Header showMenu={user} />
         <Router>
           <Routes>
-            <Route path="/" element={(loading || user) ? <Main /> : <LogIn />} />
-            <Route path="/login" element={(loading || user) ? <Main /> : <LogIn />} />
-            <Route path="/signup" element={(loading || user) ? <Main /> : <SignUp />} />
+            <Route path="/" element={(loading || user) ? <Home /> : <LogIn />} />
+            <Route path="/login" element={(loading || user) ? <Home /> : <LogIn />} />
+            <Route path="/signup" element={(loading || user) ? <Home /> : <SignUp />} />
             {/* <Route path="*" element={<NoPage />} /> */}
           </Routes>
       </Router>  

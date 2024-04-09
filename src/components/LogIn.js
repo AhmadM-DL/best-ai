@@ -7,24 +7,16 @@ import "./LogIn.css"
 const LogIn= () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (loading) {
-    //         return;
-    //     } 
-    //     if (user) navigate("/");
-    // }, [user, loading]);
+    useEffect(() => {
+        if (loading) {
+            return;
+        } 
+        if (user) navigate("/");
+    }, [user, loading]);
 
-    // const handleLogin = (google) =>{
-    //     if(google){
-    //         signInWithGoogle();
-    //     } else{
-    //         console.debug(`handleLogin(${email}, ${password})`)
-    //         logInWithEmailAndPassword(email, password);
-    //     }
-    // }
 
     return (
         <div className="container">
@@ -32,9 +24,8 @@ const LogIn= () => {
                 <div style={{display: "block"}}>
                     <input type="text" placeholder="email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                    <button >Login with Google</button>
-                    <button >Login With Email</button>
-                    {/* onClick={() => handleLogin(false)} */}
+                    <button onClick={signInWithGoogle}>Login with Google</button>
+                    <button onClick={()=>logInWithEmailAndPassword(email, password)}>Login With Email</button>
                     <p className="message">
                         <Link to="/reset">Forgot Password</Link> <br/>
                         Not registered? <Link to="/signup">Create an account</Link>

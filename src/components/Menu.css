@@ -1,0 +1,20 @@
+.menu {
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    min-width: 120px;
+    left: calc(100vw - 125px);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+.menu span {
+    color: black;
+    padding: 5px 10px;
+    display: block;
+    font-size: medium;
+  }
+
+.menu span:hover {
+    background-color: #cef0e8;
+}
