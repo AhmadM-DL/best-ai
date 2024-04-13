@@ -1,6 +1,6 @@
 import './Header.css';
 import React from 'react';
-import Menu from './Menu.js';
+import Profile from './Profile.js';
 
 function Header({showMenu}) {
 
@@ -8,7 +8,10 @@ function Header({showMenu}) {
         <header>
             <span className="logo">Best AI</span>
             <div className='menubtn'>
-                {showMenu && <Menu />}
+                {showMenu && <Profile />}
+            </div>
+            <div className="actionbtn">
+                {showMenu && <button>Add Resource</button>}
             </div>
         </header>
     );

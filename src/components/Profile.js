@@ -1,17 +1,17 @@
-import './Menu.css';
+import './Profile.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
 import {logout} from "../firebase";
 
 
-function Menu() {
+function Profile() {
 
     const [toggled, setToggle] = useState(false);
 
     return (
         <div>
-            <FontAwesomeIcon icon={faBars} onClick={()=>setToggle(!toggled)}/>
+            <FontAwesomeIcon icon={faUser} onClick={()=>setToggle(!toggled)}/>
             <div className="menu" style={toggled ? {display: "block"} : {display: "none"}}>
                 <span >Settings</span>
                 <span onClick={logout}>Log Out</span>
@@ -20,4 +20,4 @@ function Menu() {
     );
 }
 
-export default Menu;
+export default Profile;
