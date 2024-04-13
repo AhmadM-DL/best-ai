@@ -1,3 +1,101 @@
-.profile {
-       
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    background-color: #C93656;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+    padding: 50px;
+}
+
+.bannerContent{
+    max-width: 630px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.bannerText {
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 40px;
+    letter-spacing: -.02em;
+}
+
+.searchBox {
+    font-family: plusjakartasans,-apple-system,blinkmacsystemfont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.searchBox input {
+    font-size: 18px;
+    font-weight: 400;
+    width: calc(100% - 75px);
+    padding: 15px 4px 15px 20px;
+    color: #7f7f7f;
+    background: #f7f7f7;
+    border: 1px solid #f7f7f7;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.searchBox input:focus-visible {
+    outline: 0px solid #f7f7f7;
+}
+
+.searchBox span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 100%;
+    line-height: 1.15;
+    color: #7f7f7f;
+    background: #f7f7f7;
+    border: 0px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;    
+}
+
+.searchBox span:hover {
+    color: #36C9A9;
+}
+
+.trendingBox {
+    display: flex;
+    margin-top: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.trendingItem{
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.trendingItem:hover {
+    color: #7f7f7f;
 }
