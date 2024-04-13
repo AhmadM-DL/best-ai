@@ -1,8 +1,14 @@
 import './Header.css';
 import React from 'react';
 import Profile from './Profile.js';
+import { useNavigate } from 'react-router-dom';
 
 function Header({showMenu}) {
+    const navigate = useNavigate();
+
+    const addResource = () =>  {
+        navigate("/addresource");
+    }
 
     return (
         <header>
@@ -11,7 +17,7 @@ function Header({showMenu}) {
                 {showMenu && <Profile />}
             </div>
             <div className="actionbtn">
-                {showMenu && <button>Add Resource</button>}
+                {showMenu && <button onClick={addResource}>Add Resource</button>}
             </div>
         </header>
     );
